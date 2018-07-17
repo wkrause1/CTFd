@@ -68,7 +68,7 @@ def admin_chals():
         db.session.close()
         return jsonify(json_data)
     else:
-        challenges = Challenges.query.all()
+        challenges = Challenges.query.order_by('name').all()
         return render_template('admin/challenges.html', challenges=challenges)
 
 
